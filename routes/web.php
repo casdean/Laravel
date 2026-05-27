@@ -22,3 +22,13 @@ Route::prefix('/curso')->group(function(){
     Route::get('/index', [App\Http\Controllers\CursoController::class, 'index'])->name('curso.index');
     Route::post('/add', [App\Http\Controllers\CursoController::class, 'add'])->name('curso.add');  
 });
+
+Route::prefix('/professor')->group(function(){
+    Route::get('/index', [App\Http\Controllers\ProfessorController::class, 'index'])->name('prof.index');
+    Route::post('/add', [App\Http\Controllers\ProfessorController::class, 'add'])->name('prof.add');     
+});
+
+Route::prefix('/componente')->group(function(){
+    Route::get('/index', [App\Http\Controllers\ComponenteController::class, 'index'])->name('comp.index');
+    Route::post('/add', [App\Http\Controllers\ComponenteController::class, 'add'])->name('comp.add');     
+});

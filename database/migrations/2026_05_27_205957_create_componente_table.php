@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('curso', function (Blueprint $table) {
+        Schema::create('componente', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string ('nome');
-            $table->string ('periodo');
-
+            $table-> string('nome');
+            $table-> dateTime ('hora_inicio');
+            $table-> dateTime ('hora_fim');
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('curso');
+        Schema::dropIfExists('componente');
     }
 };
