@@ -17,11 +17,32 @@
         @endisset
     </form>
 
-    @isset($componentes)
-            @foreach($componentes as $componente)
-                <h3>{{ $componente->nome }}</h3>
-                <h3>{{ $componente->hora_inicio }}</h3>
-                <h3>{{ $componente->hora_fim }}</h3>
-            @endforeach
-    @endisset
+    <table border="1">
+        <tr>
+            <td>Nome do Componente</td>
+            <td colspan="2">Ações</td>
+        </tr>
+        @isset($componentes)
+                @foreach($componentes as $componente)
+                    <tr>
+                        <td>
+                        <h3>{{ $componente->nome }}</h3>
+                        <h3>{{ $componente->hora_inicio }}</h3>
+                        <h3>{{ $componente->hora_fim }}</h3>
+                        </td>
+                        <td>
+                            <form action="{{ route('comp.remove', ['id' => $componente->id]) }}" method="GET">
+                                <button type="submit">Remover</button>
+                            </form>
+                        </td>
+                            <form action="{{ route('comp.atualizar', ['id' => $componente->id]) }}" method="GET">
+                                <button type="submit">Atualizar</button>
+                            </form>
+                        <td>
+                            <button type="submit">Atualizar</button>
+                        </td>
+                    </tr>
+                @endforeach
+        @endisset
+    </table>
 </div>

@@ -16,19 +16,33 @@ use App\Http\Middleware\LogAcessoMiddleware;
 Route::prefix('/aluno')->group(function(){
     Route::get('/index', [App\Http\Controllers\AlunoController::class, 'index'])->name('aluno.index');
     Route::post('/add', [App\Http\Controllers\AlunoController::class, 'add'])->name('aluno.add');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\AlunoController::class, 'atualizar'])->name('aluno.atualizar');
 });
 
 Route::prefix('/curso')->group(function(){
     Route::get('/index', [App\Http\Controllers\CursoController::class, 'index'])->name('curso.index');
     Route::post('/add', [App\Http\Controllers\CursoController::class, 'add'])->name('curso.add');  
+    Route::get('/remove/{id}', [App\Http\Controllers\CursoController::class, 'remove'])->name('curso.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\CursoController::class, 'atualizar'])->name('curso.atualizar');
 });
 
 Route::prefix('/professor')->group(function(){
     Route::get('/index', [App\Http\Controllers\ProfessorController::class, 'index'])->name('prof.index');
     Route::post('/add', [App\Http\Controllers\ProfessorController::class, 'add'])->name('prof.add');     
+    Route::get('/remove/{id}', [App\Http\Controllers\ProfessorController::class, 'remove'])->name('prof.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\ProfessorController::class, 'atualizar'])->name('prof.atualizar');
 });
 
 Route::prefix('/componente')->group(function(){
     Route::get('/index', [App\Http\Controllers\ComponenteController::class, 'index'])->name('comp.index');
     Route::post('/add', [App\Http\Controllers\ComponenteController::class, 'add'])->name('comp.add');     
+    Route::get('/remove/{id}', [App\Http\Controllers\ComponenteController::class, 'remove'])->name('comp.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\ComponenteController::class, 'atualizar'])->name('comp.atualizar');
+});
+
+Route::prefix('/admin')->group(function(){
+    Route::get('/index', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+    Route::post('/add', [App\Http\Controllers\AdminController::class, 'add'])->name('admin.add');     
+    Route::get('/remove/{id}', [App\Http\Controllers\AdminController::class, 'remove'])->name('admin.remove');
+    Route::get('/atualizar/{id}', [App\Http\Controllers\AdminController::class, 'atualizar'])->name('admin.atualizar');
 });
