@@ -1,12 +1,11 @@
 <div>
-    <form action=" {{ route('aluno.add') }} " method="post">
+    <form action="{{ route('aluno.add') }}" method="post">
         @csrf
-        <label for="nome">Nome:</label>
+        <label for="nome">Nome</label>
         <input type="text" name="nome" id="nome">
 
-        <button type="submit">Enviar</button>
-
-    @isset($success)
+        <button type="submit">Salvar</button>
+        @isset($success)
             <h1>{{ $success }}</h1>
         @endisset
     </form>
@@ -27,11 +26,10 @@
                                 <button type="submit">Remover</button>
                             </form>
                         </td>
-                        <form action="{{ route('aluno.atualizar', ['id' => $aluno->id]) }}" method="GET">
+                        <td>
+                            <form action="{{ route('aluno.atualizar', ['id' => $aluno->id]) }}" method="GET">
                                 <button type="submit">Atualizar</button>
                             </form>
-                        <td>
-                            <button type="submit">Atualizar</button>
                         </td>
                     </tr>
                 @endforeach

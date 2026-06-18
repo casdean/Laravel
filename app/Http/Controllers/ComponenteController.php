@@ -31,5 +31,13 @@ class ComponenteController extends Controller
         return view('comp.atualizar', ['componente'=>$componente]);
     }
 
+    function save(Request $dados){
+        $componente = new \App\Models\ComponenteModel();
+        $componente = $componente::find($dados->id);
+        $componente->update($dados->all());
+
+        return view('comp.index', ['success'=>'Atualizado!', 'componentes'=>$componente::all()]);
+    }
+
     
 }

@@ -31,4 +31,13 @@ class AdminController extends Controller
         return view('admin.atualizar', ['admin'=>$admin]);
     }
 
-}
+    function save(Request $dados){
+        $admin= new \App\Models\AdminModel();
+        $admin= $admin::find($dados->id);
+        $admin->update($dados->all());
+
+        return view('admin.index', ['success'=>'Atualizado!', 'admins'=>$admin::all()]);
+    }
+ }
+
+

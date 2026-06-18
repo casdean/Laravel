@@ -28,7 +28,16 @@ class ProfessorController extends Controller
         $professor = new \App\Models\ProfModel();
         $professor = $professor::find($id);
 
-        return view('professor.atualizar', ['professor'=>$professor]);
+        return view('prof.atualizar', ['professor'=>$professor]);
     }
+
+    function save(Request $dados){
+        $professor = new \App\Models\ProfessorModel();
+        $professor = $professor::find($dados->id);
+        $professor->update($dados->all());
+
+        return view('prof.index', ['success'=>'Atualizado!', 'professores'=>$professor::all()]);
+    }
+
 
 }

@@ -1,0 +1,16 @@
+<div>
+    <form action="{{ route('comp.save') }}" method="post">
+        @csrf
+
+        <input type="hidden" name="id" value="{{ $componente->id }}">
+
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" value="{{ $componente->nome }}">
+
+        <button type="submit">Salvar</button>
+        @isset($success)
+            <h1>{{ $success }}</h1>
+        @endisset
+    </form>
+</div>
+
